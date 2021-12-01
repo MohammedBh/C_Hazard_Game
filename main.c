@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 int main()
 {
     const int MIN = 1; //Constante qui determine le Minimum du nombre a trouver.
@@ -11,31 +12,30 @@ int main()
     //Message quand le programme se lance.
     printf("▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓\n▓▒▓▒▓▒▓\t\t\t\t\t\t▓▒▓▒▓▒▓\n▓▒▓▒▓▒▓     BIENVENUE DANS LE JEU DU HASARD     ▓▒▓▒▓▒▓\n▓▒▓▒▓▒▓\t\t\t\t\t\t▓▒▓▒▓▒▓\n▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓ ");
     fflush(stdout);
-    sleep(4);
+   // sleep(4);
     printf("\e[1;1H\e[2J");
 
     printf("▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓\n▓▒▓▒▓\t\t\t      ▓▒▓▒▓\n▓▒▓▒▓  CHOISISSEZ UN NIVEAU   ▓▒▓▒▓\n▓▒▓▒▓\t\t\t      ▓▒▓▒▓\n▓▒▓▒▓   1 = Entre 1 & 100     ▓▒▓▒▓\n▓▒▓▒▓   2 = Entre 1 & 1000    ▓▒▓▒▓\n▓▒▓▒▓   3 = Entre 1 & 10000   ▓▒▓▒▓\n▓▒▓▒▓\t\t\t      ▓▒▓▒▓\n▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓\n\n\n=> ");
     fflush(stdout);
-    scanf("%d", niveau);
+    scanf("%d", &niveau);
 
     switch(niveau)
-    case 1:
     {
+    case 1:
         MAX = 100;
         break;
-    }
     case 2:
-    {
         MAX = 1000;
         break;
-    }
     case 3:
-    {
         MAX = 10000;
         break;
+    default:
+        printf("\nNiveau non reconnu. Je choisis pour vous le niveau 2 (entre 1 et 100).\n\n");
+        MAX = 100;
+        sleep(4);
     }
 
-    mystere = (rand() % (MAX - MIN + 1)) + MIN; //Mélangeur du nombre caché au hasard.
 
     //Message debut du programme.
     printf("Un nombre entre 1 et %d a été choisi au hasard et vous devez le deviner !", MAX);
@@ -53,13 +53,14 @@ int main()
     {
         //Remet le compteur a 0.
         coups = 0;
+        mystere = (rand() % (MAX - MIN + 1)) + MIN; //Mélangeur du nombre caché au hasard.
 
         do
         {
             //Debut compteur + Debut jeu.
-            coups++;
             printf("Introduisez un nombre : ");
             scanf("%d", &chiffre);
+            coups++;
             printf("\e[1;1H\e[2J");
             if(chiffre < mystere)
             {

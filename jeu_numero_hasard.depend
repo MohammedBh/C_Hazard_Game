@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 1638264853 source:/home/mohammedbl/Documents/C.Language/jeu_numero_hasard/game.c
 
-1638288435 source:/home/mohammedbl/Documents/C.Language/jeu_numero_hasard/main.c
+1638364427 source:/home/mohammedbl/Documents/C.Language/jeu_numero_hasard/main.c
 	<stdio.h>
 	<stdlib.h>
 
