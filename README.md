@@ -1,4 +1,4 @@
-# C_Jeu_Hasard
+# Hazard Game (Terminal) Made With **C**
 This game is about find a hidden number between 1 and x (it depends of the level). There are **3** different levels.
 
  1. First Level : Find a number between 1 and 100.
